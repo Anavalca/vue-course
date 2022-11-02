@@ -15,20 +15,21 @@
         const vm = Vue.createApp({
             data() {
                 return {
-                    counter: 0,
-                    incrementButton: "+",
-                    decrementButton: "-",
+                    text: "Hola Vue"
                 }
             },
-            methods: {
-                increment() {
-                    this.counter++
-                },
-                decrement() {
-                    this.counter--
-                },
-            },
-            template: `<button v-on:click="increment">{{ incrementButton }}</button><p>{{ counter }}</p><button v-on:click="decrement">{{ decrementButton }}</button>`
+            // methods: {
+            //     update(e) {
+            //         this.text = e.target.value
+            //     }
+            // },
+            //(No es necesaria la función al utilizar v-model)
+            template: `
+                    <p>{{ text }}</p>
+                    <input type="text" v-model="text">
+            `
+            // <input type="text" @input="update" :value="text">
+            // (podemos reducir código con el v-model)
         }).mount("#app")
     </script>
 </body>
