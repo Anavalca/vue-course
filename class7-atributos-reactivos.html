@@ -11,16 +11,19 @@
 <body>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <div id="app">
-        
+        <!-- <img v-bind="{'src':img, 'alt':img}"> -->
     </div>
     <script>
         const vm = Vue.createApp({
             data() {
                 return {
-                    text:"Hola"
+                    img: "https://i.picsum.photos/id/1/5616/3744.jpg?hmac=kKHwwU8s46oNettHKwJ24qOlIAsWN9d2TtsXDoCWWsQ",
+                    alt: "imagen ordenador"
+                    // atributo: src
                 }
             },
-            template:`<div v-text="text"></div>`
+            template: `<img v-bind:src="img" v-bind:alt="alt"/>`
+            // template: `<img v-bind:[atributo]="img"/>`
         }).mount("#app")
     </script>
 </body>
