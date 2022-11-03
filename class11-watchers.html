@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <div id="app"></div>
+    <script>
+        const vm = Vue.createApp({
+            data() {
+                return {
+                    text: "puerta cerrada",
+                    open: false
+                }
+            },
+            watch: {
+                open(value) {
+                    if (value) {
+                        this.text = "puerta abierta"
+                    } else {
+                        this.text = "puerta cerrada"
+                    }
+                }
+                // text(value, oldValue) {
+                //     console.log("watcher activo", oldValue)
+                // }
+            },
+            computed: {
+                label() {
+                    return this.open ? "cerrar" : "abrir";
+                }
+            },
+            template: `
+                <div>{{ text }}</div>
+                <button @click="open = !open"> {{ label }}</button>
+            `
+            // Quieres escuchar un cambio en un dato y comenzar a hacer algún proceso con él
+            // el watcher debe tener el mismo nombre de la variable que quieres escuchar
+            // el watcher siempre recibe en la función el valor de la variable y el valor anterior
+            // es mejor que el watcher solo haga una cosa y dentro incluir un método que se encargue de lo demás.
+        }).mount("#app")
+    </script>
+</body>
+
+</html>

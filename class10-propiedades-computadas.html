@@ -34,6 +34,7 @@
             `
             // <div>{{ firstName }}{{ lastName }}</div>
             // <div>{{ now.toLocaleDateString() }}</div>
+            //La diferencia fundamental es la reactividad. Las computadas son reactivas, como las variables, mientras que los métodos no lo son. Que las computadas sean reactivas quiere decir que cuando el valor del data cambie, la computada automáticamente se va a ejecutar y va a devolver el nuevo valor.
         }).mount("#app")
     </script>
 </body>
