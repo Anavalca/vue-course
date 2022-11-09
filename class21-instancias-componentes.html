@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <div id="app"></div>
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    text: "Texto de prueba"
+                }
+            },
+            template: `<v-button ref="button" :label="text"></v-button>`
+        })
+
+        app.component("v-button", {
+            props: ["label"],
+            template: `<button >{{ label }}</button>`
+        });
+
+        const vm = app.mount("#app")
+        console.log(vm.$data)
+        
+        // Una instancia es una copia de un componente de Vue
+        // Usando vm.$root devuelve el objet raiz, el ue contiene todo el árbol de componentes de la aplicación
+        // Usando vm.$el se accede al componente html de la aplicación
+        // Para acceder a referencias se usa vm.$refs.
+        // Para props, vm.$props de esta forma se puede interactuar con Vue y JavaScript Vanila de forma progresiva.
+        // En caso de querer usar Vue como un framework completo también es posible, esta es una de las principales ventajas.
+        // Un proxy es un elemento reactivo
+
+    </script>
+    <style>
+
+    </style>
+</body>
+
+</html>
